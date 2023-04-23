@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
+import { Contatos } from './contatos';
 
-function App() {
+const App: FC = () => {
   return (
-    <div className="App">
-      
+    <div >
+      <Contatos></Contatos>
     </div>
   );
 }
