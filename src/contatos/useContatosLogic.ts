@@ -8,14 +8,26 @@ export const useContatosLogic = () => {
     }
     const [contatosList, setContatosList] = useState<Contato[]>([])
     const [contato, setContato] = useState<Contato>(newContato)
+
     const addContato = (contato: Contato) => {
         contato.id = uuid()
-        setContatosList([...contatosList, contato])
+        const lista = [...contatosList,contato]
+        setContatosList(lista)
         setContato(newContato)
+    }
+
+    const removeContato = (contato:Contato) =>{
+        const id = contato.id
+        if(id){
+            const novaLista = contatosList.filter(c => c.id !== id);
+            setContatosList(novaLista)
+        }
     }
 
     return {
         contato,
-        addContato
+        addContato,
+        contatosList,
+        removeContato
     }
 }
